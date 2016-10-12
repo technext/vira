@@ -55,6 +55,63 @@ section{
 	left: calc(50% - 20px);
 }
 
+
+
+/*Bootstrap*/
+.navbar-vira{
+	background-image: none;
+	background-color: transparent;
+	margin-bottom: 0;
+	border-radius: 0;
+	border-color: transparent;
+	transition: all 0.3s ease-in-out;
+}
+.form-control option{
+	color: #424242;
+}
+.form-control{
+	border-radius: 0;
+	padding: 25px;
+    font-size: 18px;
+    font-style: italic;
+    background-color: transparent;
+    color: #424242;
+    margin-bottom: 30px;
+	border-color: #51c2b9;
+}
+.form-control:focus{
+	border-color: #51c2b9;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(81, 194, 185, 0.6);
+}
+.form-control::-webkit-input-placeholder {
+    color: #fff;
+}
+.form-control:-moz-placeholder { /* Firefox 18- */
+    color: #fff;  
+}
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+    color: #fff;  
+}
+.form-control:-ms-input-placeholder {  
+    color: #fff;  
+}
+
+.element .form-control::-webkit-input-placeholder {
+    color: #424242;
+}
+.element .form-control:-moz-placeholder { /* Firefox 18- */
+    color: #424242;  
+}
+.element .form-control::-moz-placeholder {  /* Firefox 19+ */
+    color: #424242;  
+}
+.element .form-control:-ms-input-placeholder {  
+    color: #424242;  
+}
+
+
+
+
 /*Helper class*/
 .mt80{
 	margin-top: 80px;
@@ -181,6 +238,9 @@ section{
 .element .navigation-bar a{
 	color: #424242;
 }
+.element .dark-bar{
+	background-color: #fff;
+}
 .element .menu:after{
 	color: #424242;
 }
@@ -196,27 +256,23 @@ section{
 	padding-left: 0;
 	display: inline-block;
 }
-.social-icons ul li{
+.social-icons ul a li{
 	display: inline-block;
 	list-style-type: none;
-	font-size: 18px;
-    line-height: 32px;
-    width: 36px;
     border: 2px solid #51c2b9;
     margin-right: 10px;
     background-color: #51c2b9;
+    color: #fff;
+	font-size: 18px;
+    line-height: 32px;
+    width: 36px;
 }
-.social-icons ul li:last-child{
+.social-icons ul a li:last-child{
 	margin-right: 0;
 }
-.social-icons ul li a{
-	color: #fff;
-}
-.social-icons ul li:hover{
-	background-color: #fff;
-}
-.social-icons ul li:hover a{
+.social-icons ul a:hover li{
 	color: #51c2b9;
+	background-color: #fff;
 }
 
 
@@ -251,12 +307,15 @@ section{
 	text-decoration: none;
 }
 .hide-menu{
-	margin-top: -318px;
+	margin-top: -324px;
 }
 .show-menu{
 	margin-top: 0;
 }
-
+.dark-bar{
+	background-color: #424242;
+	background-image: none;
+}
 .navigation-bar{
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	padding: 15px 0;
@@ -290,6 +349,7 @@ section{
 	background-image: url(../images/1.jpg);
 	height: 100vh;
 	position: relative;
+	min-height: 659px;
 }
 
 .intro-box{
@@ -311,7 +371,8 @@ section{
 }
 .header p{
 	font-size: 32px;
-	padding: 30px 0;
+	padding-top: 0;
+	padding-bottom: 40px;
 }
 .header .vira-btn{
 	border-color: #fff;
@@ -427,9 +488,9 @@ section{
 	transition: all 0.3s ease-in-out;
 	margin-bottom: 45px;
 }
-.contact .vira-card:hover{
+/*.contact .vira-card:hover{
 	box-shadow: 0px 4px 2px rgba(17, 17, 17, 0.3);
-}
+}*/
 .contact .vira-card .vira-card-header{
 	margin-bottom: 15px;
 	font-size: 21px;
@@ -478,56 +539,19 @@ section{
 .owl-theme .owl-dots .owl-dot span{
 	background-color: #51c2b9;
 	margin: 5px;
-	transition: all 0.3s ease-in-out;
 }
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
 	background-color: #51c2b9;
 	height: 14px;
 	width: 14px;
-	margin: 3px 5px;
+	margin: 3px;
 }
 
 
-/*Bootstrap*/
-.form-control option{
-	color: #424242;
-}
-.form-control{
-	border-radius: 0;
-	padding: 25px;
-    font-size: 18px;
-    font-style: italic;
-    background-color: transparent;
-    color: #424242;
-    margin-bottom: 30px;
-	border-color: #51c2b9;
-}
-.form-control:focus{
-	border-color: #51c2b9;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(81, 194, 185, 0.6);
-}
-.form-control::-webkit-input-placeholder {
-    color: #fff;
-}
-.form-control:-moz-placeholder { /* Firefox 18- */
-    color: #fff;  
-}
-.form-control::-moz-placeholder {  /* Firefox 19+ */
-    color: #fff;  
-}
-.form-control:-ms-input-placeholder {  
-    color: #fff;  
-}
 
-.element .form-control::-webkit-input-placeholder {
-    color: #424242;
-}
-.element .form-control:-moz-placeholder { /* Firefox 18- */
-    color: #424242;  
-}
-.element .form-control::-moz-placeholder {  /* Firefox 19+ */
-    color: #424242;  
-}
-.element .form-control:-ms-input-placeholder {  
-    color: #424242;  
+
+@media (max-width: 767px){
+	.vira-card{
+		margin-bottom: 60px;
+	}
 }

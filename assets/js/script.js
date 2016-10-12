@@ -1,42 +1,44 @@
 $(document).ready(function() {
- 	$('#vira-popup').magnificPopup({
-		iframe: {
-		  markup: '<div class="mfp-iframe-scaler">'+
-		            '<div class="mfp-close"></div>'+
-		            '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
-		          '</div>', // HTML markup of popup, `mfp-close` will be replaced by the close button
+ 	
+ 	$(window).scroll(function() {    
+	    var scroll = $(window).scrollTop();
 
-		  patterns: {
-		    youtube: {
-		      index: 'youtube.com/', // String that detects type of video (in this case YouTube). Simply via url.indexOf(index).
+	    if (scroll >= 569) {
+	        $(".navbar").addClass("navbar-fixed-top dark-bar");
+	    } else {
+	        $(".navbar").removeClass("navbar-fixed-top dark-bar");
+	    }
+	});
 
-		      id: 'v=', // String that splits URL in a two parts, second part should be %id%
-		      // Or null - full URL will be returned
-		      // Or a function that should return %id%, for example:
-		      // id: function(url) { return 'parsed id'; }
 
-		      src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe.
-		    },
-		    vimeo: {
-		      index: 'vimeo.com/',
-		      id: '/',
-		      src: '//player.vimeo.com/video/%id%?autoplay=1'
-		    },
-		    gmaps: {
-		      index: '//maps.google.',
-		      src: '%id%&output=embed'
+	// Smooth Scroll
+
+		$('a[href*="#"]:not([href="#"])').click(function() {
+		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+		        || location.hostname == this.hostname) {
+
+		        var target = $(this.hash);
+		        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		           if (target.length) {
+		             $('html,body').animate({
+		                 scrollTop: (target.offset().top - 400)
+		            }, 1000);
+		            return false;
+		        }
 		    }
-
-		    // you may add here more sources
-
-		  },
-
-		  srcAction: 'iframe_src', // Templating object key. First part defines CSS selector, second attribute. "iframe_src" means: find "iframe" and set attribute "src".
-		}
- 	});
+		});
 
 
+ 	// Popup
 
+ 	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false
+    });
 
 
 
@@ -45,8 +47,6 @@ $(document).ready(function() {
  	$('#workstation-slider').owlCarousel({
 	    loop:true,
 	    margin:30,
-	    // stagePadding: 15,
-	    // nav:true,
 	    responsive:{
 	        0:{
 	            items:1
@@ -74,6 +74,12 @@ $(document).ready(function() {
  	// Menu bar
 	$( ".menu" ).click(function() {
 		$(this).toggleClass('m c');
+		$('.menu span').toggleClass('ion-navicon ion-android-close');
+		$('#menu-item').toggleClass( "show-menu hide-menu" );
+	});
+
+	$( "#menu-item a" ).click(function() {
+		$('.menu').toggleClass('c m');
 		$('.menu span').toggleClass('ion-navicon ion-android-close');
 		$('#menu-item').toggleClass( "show-menu hide-menu" );
 	});
